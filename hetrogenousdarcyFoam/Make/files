@@ -1,0 +1,3 @@
+hetrogenousDarcyFoam.C
+
+EXE = hetrogenousDarcyFoam

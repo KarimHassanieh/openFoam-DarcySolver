@@ -1,0 +1,2 @@
+SOURCE = \
+hetrogenousDarcyFoam.C 
