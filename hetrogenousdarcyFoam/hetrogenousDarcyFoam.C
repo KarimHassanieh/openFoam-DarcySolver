@@ -44,11 +44,11 @@ simpleControl simple(mesh);
 while(simple.loop(runTime)){
 
 while(simple.correctNonOrthogonal()){
-//solve(
-//fvm::laplacian(k,p)
-//);
+solve(
+fvm::laplacian(k,p)
+);
 
-//U=-k/mu*fvc::grad(p);
+U=-k*fvc::grad(p);
 runTime.write();
 }
     Info<< nl << "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
