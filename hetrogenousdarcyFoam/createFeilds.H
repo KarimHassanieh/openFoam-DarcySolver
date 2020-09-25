@@ -62,24 +62,30 @@ Solves velocity and pressure equation in porous meduim using Darcy's law
 /*------------------------------Read Constant Feilds-----------------------------*/  
     Info<<"Reading Transport Properties"<<endl;
     Info<<"Reading  Permeabilty from SetFeilds"<<endl;
-IOdictionary transportProperties
+IOdictionary setFieldsDict
 (
 IOobject
-(  
-    "transportProperties",
-     runTime.constant(),
-     mesh,
-     IOobject::MUST_READ_IF_MODIFIED,
-     IOobject::NO_WRITE
-)
-      
-);    
-
-dimensionedScalar k
 (
-   transportProperties.lookup("k")
-
+"setFieldsDict",
+runTime.system(),
+mesh,
+IOobject::MUST_READ,
+IOobject::NO_WRITE
+)
 );
+volScalarField k
+(
+setFieldsDict.lookup("k"),
+);
+//Info<< "Setting field region values" << endl;
+//   if (setFieldsDict.found("regions"))
+//       {
+//           Info<< "Reading Set Feild Regions" << endl;
+//              setFieldsDict.lookup("defaultFieldValues"),
+//              setFieldsDict.lookup("regions"),
+//
+//           Info<< endl;
+//       }
 
     Info<<"Reading Viscosity"<<endl;
     dimensionedScalar mu("mu",dimensionSet(1,-1,-1,0,0,0,0),1e-05);
