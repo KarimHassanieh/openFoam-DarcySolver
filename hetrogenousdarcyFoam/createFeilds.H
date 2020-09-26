@@ -30,6 +30,10 @@ Solves velocity and pressure equation in porous meduim using Darcy's law
 
 
 /*------------------------------Read Variable Feilds-----------------------------*/
+   
+   
+
+   
     Info<<"Reading Pressure Field"<<endl;
     
     volScalarField p
@@ -57,49 +61,34 @@ Solves velocity and pressure equation in porous meduim using Darcy's law
     mesh,
     dimensionedVector("U",dimensionSet(0,1,-1,0,0,0,0),vector::zero)
     };
+   
+   
+   //Add permeablity to be adjusted by SetFeildsDict
+   
     volScalarField k
     {
     IOobject(
     "k",
-    runTime.timeName(),
+    runTime.constant(),
     mesh,
     IOobject::MUST_READ,
     IOobject::NO_WRITE 
     ),
     mesh
     };
- 
-/*------------------------------Read Constant Feilds-----------------------------*/  
-//    Info<<"Reading Transport Properties"<<endl;
-//    Info<<"Reading  Permeabilty from SetFeilds"<<endl;
-    
-//IOdictionary setFieldsDict
-//(
-//IOobject
-//(
-//"setFieldsDict",
-//runTime.system(),
-//mesh,
-//IOobject::MUST_READ,
-//IOobject::NO_WRITE
-//)
-//);
-//volScalarField k
-//(
-// "k",
-// [0 2 0 0 0 0 0 ],
-//setFieldsDict.lookup("k")
-//);
-//Info<< "Setting field region values" << endl;
-//   if (setFieldsDict.found("regions"))
-//       {
-//           Info<< "Reading Set Feild Regions" << endl;
-//              setFieldsDict.lookup("defaultFieldValues"),
-//              setFieldsDict.lookup("regions"),
-//
-//           Info<< endl;
-//       }
+       //Add viscousity 
 
-//    Info<<"Reading Viscosity"<<endl;
-//    dimensionedScalar mu("mu",dimensionSet(1,-1,-1,0,0,0,0),1e-05);
+    dimensionedScalar mu("mu",dimensionSet(1,-1,-1,0,0,0,0),1e-05);
+
+
+ 
+
+    
+    
+    
+    
+    
+    
+    
+    
 // ************************************************************************* //

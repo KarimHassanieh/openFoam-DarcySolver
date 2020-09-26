@@ -45,10 +45,11 @@ while(simple.loop(runTime)){
 
 while(simple.correctNonOrthogonal()){
 solve(
-fvm::laplacian(k,p)
+fvm::laplacian(k/mu,p)
 );
 
-U=-k*fvc::grad(p);
+U=-k/mu*fvc::grad(p);
+
 runTime.write();
 }
     Info<< nl << "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
