@@ -1,6 +1,6 @@
 # OpenFoam-DarcySolver
-This is an OpenFoam Solver to solve the Darcy Equation for velocity and Pressure 
-This is inspired guided from the tutorial of "Introduction to open-source computational fluid dynamics using OpenFOAM®" by Cyprien Soulaine
+This is an OpenFoam Solver to solve the Darcy Equation for Velocity and Pressure 
+This is inspired & guided from the tutorial of "Introduction to open-source computational fluid dynamics using OpenFOAM®" by Cyprien Soulaine
 technology.
 
 The Solver in a homogenous Porous Meduim is Darcy Foam.
